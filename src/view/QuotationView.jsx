@@ -21,6 +21,9 @@ export default function QuotationView() {
     getQuotation();
   }, []);
 
+  if (error) return <div>Error: {error}</div>;
+  if (!quotation) return <div>Loading...</div>;
+
   return (
     <QuotationCard
       quotation={quotation}
