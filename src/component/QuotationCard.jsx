@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { FaRegCopy } from "react-icons/fa";
 
 function QuotationCard({ quotation, onCopy, onNext }) {
   return (
@@ -20,8 +21,16 @@ function QuotationCard({ quotation, onCopy, onNext }) {
           borderRadius: "1rem",
         }}
       >
-        <Card.Header style={{ textAlign: "center", fontWeight: "bold" }}>
-          Quote
+        <Card.Header
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            textAlign: "center",
+            fontWeight: "bold",
+            padding: "0.5rem",
+          }}
+        >
+          <FaRegCopy onClick={onCopy} />
         </Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
@@ -42,11 +51,16 @@ function QuotationCard({ quotation, onCopy, onNext }) {
                 marginTop: "1rem",
               }}
             >
-              <Button variant="primary" onClick={onNext}>
+              <Button
+                variant="primary"
+                style={{
+                  width: "200px",
+                  backgroundColor: "#f0dadaff",
+                  borderRadius: "1rem",
+                }}
+                onClick={onNext}
+              >
                 New quotation
-              </Button>
-              <Button variant="secondary" onClick={onCopy}>
-                Copy quotation
               </Button>
             </div>
           </blockquote>
